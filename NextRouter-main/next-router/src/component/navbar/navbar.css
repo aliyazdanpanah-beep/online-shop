@@ -1,0 +1,146 @@
+/* Navbar Styles - Simple and Clean */
+.Navbar {
+  margin: 15px auto;
+  padding: 12px 25px;
+  border-radius: 14px;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+  max-width: fit-content;
+  transition: all 0.3s ease;
+  position: fixed;
+  z-index: 10000;
+  right: 0;
+  left: 0;
+  top: 0;
+}
+
+.Navbar:hover {
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+  transform: translateY(-1px);
+}
+
+.Navbar a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 10px 18px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 14px;
+}
+
+
+/* Active Link Styling */
+.Navbar a.text-sky-500 {
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 
+    0 4px 15px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.Navbar a.text-sky-500:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Cart Link Special Styling */
+.Navbar .relative a {
+  background: linear-gradient(135deg, 
+    rgba(255, 107, 107, 0.2) 0%, 
+    rgba(238, 90, 36, 0.2) 100%);
+  border: 1px solid rgba(255, 107, 107, 0.4);
+}
+
+.Navbar .relative a:hover {
+  background: linear-gradient(135deg, 
+    rgba(255, 107, 107, 0.3) 0%, 
+    rgba(238, 90, 36, 0.3) 100%);
+  border-color: rgba(255, 107, 107, 0.6);
+}
+
+/* Cart Badge Styling */
+.Navbar .relative span {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+  color: white;
+  font-weight: 700;
+  box-shadow: 0 3px 10px rgba(255, 107, 107, 0.4);
+  border: 2px solid white;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .Navbar {
+    margin: 15px auto;
+    padding: 15px 20px;
+    gap: 12px;
+    flex-wrap: wrap;
+    border-radius: 14px;
+    justify-content: center;
+    width: 90%;
+    max-width: 400px;
+  }
+  
+  .Navbar a {
+    padding: 10px 18px;
+    font-size: 14px;
+    border-radius: 8px;
+    flex: 1;
+    min-width: 80px;
+    text-align: center;
+  }
+  
+  .Navbar .relative span {
+    width: 20px;
+    height: 20px;
+    font-size: 10px;
+    top: -8px;
+    right: -8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .Navbar {
+    margin: 10px auto;
+    padding: 12px 15px;
+    gap: 8px;
+    border-radius: 12px;
+    width: 95%;
+    max-width: 350px;
+  }
+  
+  .Navbar a {
+    padding: 8px 12px;
+    font-size: 13px;
+    border-radius: 6px;
+    min-width: 70px;
+  }
+  
+  .Navbar .relative span {
+    width: 18px;
+    height: 18px;
+    font-size: 9px;
+    top: -6px;
+    right: -6px;
+  }
+}
+
+/* For very small screens */
+@media (max-width: 360px) {
+  .Navbar {
+    gap: 6px;
+    padding: 10px 12px;
+  }
+  
+  .Navbar a {
+    padding: 6px 10px;
+    font-size: 12px;
+    min-width: 60px;
+  }
+}

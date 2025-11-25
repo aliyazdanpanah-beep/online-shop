@@ -1,0 +1,404 @@
+/* Home Page Styles - Scoped with parent container */
+
+/* home.css */
+.home-page {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Scroll Animation Classes */
+.home-page .fade-in-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.home-page .fade-in-up.animated {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.home-page .zoom-in {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: all 0.8s ease;
+}
+
+.home-page .zoom-in.animated {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.home-page .slide-in-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: all 0.8s ease;
+}
+
+.home-page .slide-in-left.animated {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.home-page .slide-in-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: all 0.8s ease;
+}
+
+.home-page .slide-in-right.animated {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Staggered Animations */
+.home-page .animation-delay-200 {
+  transition-delay: 0.2s;
+}
+
+.home-page .animation-delay-400 {
+  transition-delay: 0.4s;
+}
+
+.home-page .animation-delay-600 {
+  transition-delay: 0.6s;
+}
+
+.home-page .animation-delay-800 {
+  transition-delay: 0.8s;
+}
+
+/* بقیه استایل‌ها همون قبلی... */
+.home-page .hero-section {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 4rem 2rem;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+/* بقیه استایل‌ها رو از قبلی کپی کن */
+
+
+.home-page {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Hero Section */
+.home-page .hero-section {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 4rem 2rem;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  background-image: url("/pexels-hikaique-125532.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.home-page .hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5); /* تاریکی 50% */
+  z-index: 1;
+}
+
+.home-page .hero-section > * {
+  position: relative;
+  z-index: 2;
+}
+
+.home-page .hero-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  animation: fadeInUp 1s ease-out;
+}
+
+.home-page .hero-subtitle {
+  font-size: 1.3rem;
+  margin-bottom: 2.5rem;
+  max-width: 600px;
+  opacity: 0.9;
+  animation: fadeInUp 1s ease-out 0.3s both;
+}
+
+.home-page .hero-btn {
+  background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+  color: white;
+  border: none;
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  animation: fadeInUp 1s ease-out 0.6s both;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.home-page .hero-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(45deg, #ee5a24, #ff6b6b);
+}
+
+/* Features Section */
+.home-page .features-section {
+  padding: 5rem 2rem;
+  background: #f8f9fa;
+}
+
+.home-page .features-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: #2c3e50;
+  position: relative;
+}
+
+.home-page .features-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  border-radius: 2px;
+}
+
+.home-page .features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.home-page .feature-item {
+  background: white;
+  padding: 2.5rem 2rem;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  border: 1px solid #e9ecef;
+}
+
+.home-page .feature-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.home-page .feature-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+.home-page .feature-description {
+  color: #6c757d;
+  line-height: 1.7;
+}
+
+/* Services Section */
+.home-page .services-section {
+  padding: 5rem 2rem;
+  background: white;
+}
+
+.home-page .services-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: #2c3e50;
+  position: relative;
+}
+
+.home-page .services-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+  border-radius: 2px;
+}
+
+.home-page .services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.home-page .service-item {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 2.5rem 2rem;
+  border-radius: 15px;
+  text-align: center;
+  color: white;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.home-page .service-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.1);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.home-page .service-item:hover::before {
+  opacity: 1;
+}
+
+.home-page .service-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.home-page .service-title {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  position: relative;
+  z-index: 1;
+}
+
+.home-page .service-description {
+  opacity: 0.9;
+  line-height: 1.7;
+  position: relative;
+  z-index: 1;
+}
+
+/* Links Section */
+.home-page .links-section {
+  padding: 4rem 2rem;
+  background: #2c3e50;
+  color: white;
+}
+
+.home-page .links-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2.5rem;
+  color: white;
+}
+
+.home-page .links-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.home-page .link-item {
+  color: #ecf0f1;
+  text-decoration: none;
+  padding: 0.8rem 1.5rem;
+  border: 2px solid transparent;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.home-page .link-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #3498db;
+  color: #3498db;
+  transform: translateY(-2px);
+}
+
+/* Footer */
+.home-page .footer {
+  background: #1a252f;
+  color: #ecf0f1;
+  text-align: center;
+  padding: 2rem;
+  font-size: 0.9rem;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .home-page .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .home-page .hero-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .home-page .features-grid,
+  .home-page .services-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .home-page .links-list {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-page .hero-title {
+    font-size: 2rem;
+  }
+  
+  .home-page .features-section,
+  .home-page .services-section {
+    padding: 3rem 1rem;
+  }
+}

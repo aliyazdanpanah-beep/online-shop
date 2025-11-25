@@ -1,0 +1,182 @@
+import AddToCart from "@/component/AddToCart/addToCart";
+import Navbar from "@/component/navbar/page";
+import axios from "axios";
+import Link from "next/link";
+
+interface IProductProps {
+  params: Promise<{ id: string }>;
+  searchParams: Promise<{}>;
+}
+
+interface Product {
+  id: number;
+  title: string;
+  price: number;
+  description: string;
+  category: string;
+  image: string;
+  rating: {
+    rate: number;
+    count: number;
+  };
+}
+
+async function Products(props: IProductProps) {
+  const { id } = await props.params;
+
+  // دریافت محصول بر اساس آیدی
+  const result = await axios.get<Product>(
+    `https://fakestoreapi.com/products/${id}`
+  );
+  const { data } = result;
+
+  return (
+    <div>
+      <Navbar />
+      <div className="min-h-screen bg-gradient-to-br from-purple-50 via-blue-50 to-pink-50 py-8 px-4">
+        <div className="max-w-6xl mx-auto">
+          {/* Breadcrumb */}
+          <div className="mb-8">
+            <nav className="flex items-center space-x-2 text-sm text-gray-600 mt-20">
+              <Link
+                href="/store"
+                className="hover:text-purple-600 transition-colors"
+              >
+                Store
+              </Link>
+              <span>›</span>
+              <span className="text-purple-600 font-medium">
+                {data.category}
+              </span>
+              <span>›</span>
+              <span className="text-gray-900 font-medium truncate">
+                {data.title}
+              </span>
+            </nav>
+          </div>
+
+          <div className="bg-white rounded-3xl shadow-2xl overflow-hidden">
+            <div className="flex flex-col lg:flex-row">
+              {/* Image Section */}
+              <div className="lg:w-1/2 p-8 bg-gradient-to-br from-purple-100 to-blue-100">
+                <div className="flex items-center justify-center h-full">
+                  <div className="relative group">
+                    <img
+                      src={data.image}
+                      alt={data.title}
+                      className="w-full max-w-md h-80 object-contain transform group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-blue-500/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Product Info Section */}
+              <div className="lg:w-1/2 p-8">
+                {/* Category Badge */}
+                <div className="mb-4">
+                  <span className="inline-block bg-gradient-to-r from-purple-500 to-blue-500 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
+                    {data.category}
+                  </span>
+                </div>
+
+                {/* Title */}
+                <h1 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6 leading-tight">
+                  {data.title}
+                </h1>
+
+                {/* Rating */}
+                <div className="flex items-center mb-6">
+                  <div className="flex items-center">
+                    {[...Array(5)].map((_, i) => (
+                      <span
+                        key={i}
+                        className={`text-2xl ${
+                          i < Math.floor(data.rating.rate)
+                            ? "text-yellow-400"
+                            : "text-gray-300"
+                        }`}
+                      >
+                        ★
+                      </span>
+                    ))}
+                  </div>
+                  <span className="ml-3 text-lg font-semibold text-gray-700">
+                    {data.rating.rate}
+                  </span>
+                  <span className="ml-2 text-gray-500">
+                    ({data.rating.count} reviews)
+                  </span>
+                </div>
+
+                {/* Price */}
+                <div className="mb-6">
+                  <p className="text-5xl font-bold bg-gradient-to-r from-red-500 to-orange-500 bg-clip-text text-transparent">
+                    ${data.price}
+                  </p>
+                  <p className="text-green-600 font-semibold mt-2">
+                    In Stock • Free Shipping
+                  </p>
+                </div>
+
+                {/* Description */}
+                <div className="mb-8">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                    Description
+                  </h3>
+                  <p className="text-gray-700 leading-relaxed text-lg">
+                    {data.description}
+                  </p>
+                </div>
+
+                {/* Add to Cart Section */}
+                <div className="border-t border-gray-200 pt-6">
+                  <div className="flex flex-col sm:flex-row items-center gap-4">
+                    <AddToCart id={id} />
+
+                    {/* Additional Actions */}
+                    <button className="flex-1 bg-gradient-to-r from-gray-100 to-gray-200 hover:from-gray-200 hover:to-gray-300 text-gray-800 px-6 py-4 rounded-2xl font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-lg border border-gray-300">
+                      ❤️ Add to Wishlist
+                    </button>
+                  </div>
+
+                  {/* Quick Features */}
+                  <div className="grid grid-cols-2 gap-4 mt-6">
+                    <div className="flex items-center text-gray-600">
+                      <span className="text-2xl mr-2">🚚</span>
+                      <span className="text-sm">Free Shipping</span>
+                    </div>
+                    <div className="flex items-center text-gray-600">
+                      <span className="text-2xl mr-2">↩️</span>
+                      <span className="text-sm">30-Day Return</span>
+                    </div>
+                    <div className="flex items-center text-gray-600">
+                      <span className="text-2xl mr-2">🔒</span>
+                      <span className="text-sm">Secure Payment</span>
+                    </div>
+                    <div className="flex items-center text-gray-600">
+                      <span className="text-2xl mr-2">📞</span>
+                      <span className="text-sm">24/7 Support</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Related Products Suggestion */}
+          <div className="mt-12 text-center">
+            <h2 className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent mb-4">
+              You Might Also Like
+            </h2>
+            <p className="text-gray-600">
+              Explore more amazing products in our collection
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default Products;
