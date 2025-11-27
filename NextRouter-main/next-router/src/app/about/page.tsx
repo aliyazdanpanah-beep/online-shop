@@ -4,7 +4,7 @@ import ScrollAnimation from "@/component/scrollAnimation/scrollAnimation";
 import Navbar from "@/component/navbar/page";
 
 export const metadata: Metadata = {
-  title: "About Us - Your Company",
+  title: "About Us",
   description:
     "Learn more about our company, our values, and our amazing team.",
 };
