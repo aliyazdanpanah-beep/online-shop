@@ -118,7 +118,7 @@ export default function Home() {
 
           {/* Footer */}
           <footer className="footer">
-            <p>&copy; 2025 Your Company. All rights reserved.</p>
+            <p>&copy; 2025 All rights reserved.</p>
           </footer>
         </section>
 

@@ -127,7 +127,7 @@ const About = () => {
 
         {/* Footer */}
         <footer className="footer">
-          <p>&copy; 2025 Your Company. All rights reserved.</p>
+          <p>&copy; 2025 All rights reserved.</p>
         </footer>
 
         {/* Scroll Animation Component */}
