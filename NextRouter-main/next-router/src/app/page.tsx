@@ -21,7 +21,7 @@ export default function Home() {
               Get Started
             </button>
           </div>
-
+          
           {/* Features Section */}
           <div className="features-section">
             <h2 className="features-title fade-in-up">Why Choose Us?</h2>
@@ -122,7 +122,6 @@ export default function Home() {
           </footer>
         </section>
 
-        {/* کامپوننت انیمیشن */}
         <HomeAnimations />
       </div>
     </div>
