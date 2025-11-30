@@ -44,6 +44,8 @@ const About = () => {
           </div>
         </div>
 
+        
+
         {/* Values Section */}
         <div className="values-section">
           <h2 className="values-title fade-in-up">Our Values</h2>
